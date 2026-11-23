@@ -20,8 +20,19 @@
 4. **Yazilimci:** Is mantigi, servisler ve durum yonetimi Clean Architecture ile kodlanir.
 5. **Testci:** Statik analiz (`flutter analyze`) ve birim/widget testleri (`flutter test`) isletilir.
 6. **Denetci:** Kod kalitesi, temiz kod standartlari ve guvenlik denetlenir.
-7. **Raporlama:** Kullaniciya tamamlanan is net ve anlasilir sekilde ozetlenir.
+7. **Standart Teslimat:** Kullaniciya 3 maddelik standart sablon ile teslim edilir.
 
-## 4. Flutter Proje Takibi Standartlari
+## 4. Kapsam Korumasi ve Cerrahi Mudahale (Scope Creep Engelleme)
+- Talep disina cikilmaz; calisan mimari, servisler ve fonksiyonlar gereksiz yere bastan yazilmaz.
+- Degisiklikler her zaman minimal, hedefe odakli ve yan etkisiz (side-effect free) tutulur.
+- Basit bir duzeltme icin genel yapisal degisikliklere girisilmez.
+
+## 5. Standart Teslim Sablonu (Kapanis Formati)
+Is tamamlandiginda kullaniciya laf kalabaligi yapmadan daima su uc maddeyle teslimat yapilir:
+1. **Yapilan Is:** Ne yapildigini aciklayan 1-2 net cumlelik ozet.
+2. **Etkilenen / Eklenen Dosyalar:** Olusturulan veya guncellenen tum dosya baglantilari.
+3. **Kalite Durumu:** `flutter analyze` ve `flutter test` komutlarinin sifir hata/uyari ile gectiginin teyidi.
+
+## 6. Flutter Proje Takibi Standartlari
 - Projede her zaman saglikli bir `pubspec.yaml` ve uyari vermeyen `analysis_options.yaml` bulunmalidir.
 - Her degisiklik sonrasinda analiz uyarilarinin ve testlerin sifir hata ile gectiginden emin olunmalidir.
