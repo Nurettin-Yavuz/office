@@ -1,0 +1,8 @@
+# Sistem Dosyalari
+.DS_Store
+Thumbs.db
+
+# Gecici Dosyalar
+*.tmp
+*.log
+.cache/

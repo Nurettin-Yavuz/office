@@ -1,0 +1,14 @@
+{
+  "name": "office",
+  "displayName": "OFFICE",
+  "description": "Flutter odakli otonom yazilim muhendisligi ofisi: Yonetici, Mimar, Tasarimci, Yazilimci, Testci, DevOps ve Denetci.",
+  "version": "1.0.0",
+  "suggestedPrompts": [
+    "Yonetici, yeni bir Flutter gorevi planlayalim",
+    "Yazilimci, bu ozelligi Clean Architecture ile kodla",
+    "Tasarimci, modern ve responsive yeni bir ekran olustur",
+    "Testci, projede testleri ve flutter analyze calistir",
+    "Denetci, yapilan degisiklikleri incele",
+    "DevOps, projeyi derle ve build hatalarini coz"
+  ]
+}
