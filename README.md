@@ -2,7 +2,7 @@
 
 Bu calisma alani, Flutter projelerini dunya standartlarinda gelistirmek, test etmek, denetlemek ve yayina hazirlamak uzere ozel egitilmis 7 kisilik otonom yapay zeka ofisidir.
 
-Her rol kendi klasoru altinda `ROL.md` (gorev sinirlari) ve `EGITIM.md` (teknik anayasa ve kurallar) dosyalariyla bagimsiz olarak egitilmistir.
+Her rol kendi klasoru altinda `ROL.md` (gorev sinirlari) ve `EGITIM.md` (teknik anayasa ve kurallar) dosyalariyla bagimsiz olarak egitilmistir. Ayrica uzmanlarin derin teknik gorevlerde basvurdugu `skills/` kutuphanesi kurulmustur.
 
 ---
 
@@ -57,3 +57,13 @@ Her rol kendi klasoru altinda `ROL.md` (gorev sinirlari) ve `EGITIM.md` (teknik 
 - **iOS & CocoaPods Protokolu:** Pod ve lock kilitlenmelerinde derin temizlik yapar (`rm -rf Pods Podfile.lock && pod install`).
 - **Bagimlilik Cozumu:** Paket cakismalarini (`version solving failed`) `dependency_overrides` ve cache onarimiyla cozer.
 - **Surumleme ve Paketleme:** SemVer ile Android APK/AAB ve iOS archive paketlerini derler, boyut ve yol raporu sunar.
+
+---
+
+## Ofis Uzmanlik Becerileri (Skills Kutuphanesi)
+
+1. [ble-donanim-iletisimi](skills/ble-donanim-iletisimi/SKILL.md): Akilli saat, medikal sensor ve BLE cihaz tarama, MTU, veri ayristirma ve otomatik yeniden baglanma rehberi.
+2. [120fps-akici-ui](skills/120fps-akici-ui/SKILL.md): 60/120 FPS ultra akici Flutter UI, RepaintBoundary ve CustomPainter cizim optimizasyonu.
+3. [clean-architecture-kaliplari](skills/clean-architecture-kaliplari/SKILL.md): Model, Repository, Cubit ve Result/Failure somut kod kaliplari ve DI kurulumu.
+4. [offline-first-veritabani](skills/offline-first-veritabani/SKILL.md): Hive, Isar ve SQLite ile sifreli yerel veri saklama ve arka plan senkronizasyonu.
+5. [magaza-ve-build-otomasyonu](skills/magaza-ve-build-otomasyonu/SKILL.md): Google Play ve App Store icin APK/AAB/IPA derleme, Keystore ve ProGuard ayar kilavuzu.
