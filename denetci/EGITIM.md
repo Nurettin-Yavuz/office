@@ -35,8 +35,9 @@ Denetim sureci basariyla tamamlanip kod onaylandiginda (`APPROVE` karari ciktigi
 1. **Turkce Commit Mesaji Uretimi:** Yapilan isi net sekilde ifade eden Turkce Conventional Commit standardinda mesaj hazirlanir:
    - Ornek: `feat(bluetooth): cihaz tarama ve baglanti servisleri eklendi`
    - Ornek: `fix(auth): asenkron giris hatasi ve bellek sizintisi giderildi`
-2. **Git Commit ve Push:**
+2. **Git Commit ve Uzak GitHub'a Zorunlu Push:**
    - `git add .`
    - `git commit -m "<anlamli_turkce_mesaj>"`
-   - `git push` (veya `gh pr create` / `gh pr review --approve --body "<turkce_denetim_raporu>"`)
+   - `git push origin <mevcut_dal>` (Lokal commit ile birakmak YASAKTIR; kod her zaman uzak GitHub deposuna gonderilmelidir.)
+   - Gerektiginde: `gh pr create --title "<turkce_baslik>" --body "<turkce_denetim_raporu>"` ile PR olusturulur.
 3. **Yoneticiye Bildirim:** Isin basariyla GitHub'a aktarildigini ve onaylandigini tek cumleyle bildirir.
