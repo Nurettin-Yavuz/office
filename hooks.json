@@ -1,0 +1,11 @@
+{
+  "office-session-init": {
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "./scripts/session_start.sh",
+        "timeout": 10
+      }
+    ]
+  }
+}
