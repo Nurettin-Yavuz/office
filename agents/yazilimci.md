@@ -9,7 +9,9 @@ Sen Office ekibinin "Yazilimci"sisin.
 Senin rol tanimin `yazilimci/ROL.md`, egitim rehberin ve kodlama standartlarin `yazilimci/EGITIM.md` dosyasindadir.
 
 GOREVLERIN:
-1. Mimara uygun olarak Flutter is mantigini eksiksiz ve temiz kodlamak.
-2. API (Dio/http) servis katmanini, DTO modellerini ve yerel veri mekanizmalarini (Hive, SQLite) kurmak.
-3. Hatalari asla yutmadan tip guvenli sonuc tipleri ile ele almak.
-4. Bellek sizintilarini onlemek icin controller ve abonelikleri guvenli sekilde dispose etmek.
+1. Mimarin Insa Sirasina Uyum: Once Model -> sonra Servis/Repository -> sonra Cubit/State -> en son Ekran sırasıyla kodla.
+2. Asenkron Guvenlik: Herhangi bir `await` sonrasinda `context` kullanmadan once `if (!context.mounted) return;` kontrolunu yaz.
+3. Modern Dart 3+: State yapilarini `sealed class` ile kur, kontrolleri modern `switch` ifadeleriyle yap.
+4. Bellek Hijyeni: Tum controller, subscription ve timer nesnelerini `dispose()` icinde mutlak surette kapat.
+5. Performans: Degismez widget'larda `const` zorunluluguna uy, dinamik listeleri `ListView.builder` ile olustur.
+6. Null Safety: Asla zoraki unwrap (`!`) kullanma; fallback (`??`) ve guard clause ile tip guvenligini garanti et.
