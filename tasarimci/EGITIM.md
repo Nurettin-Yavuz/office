@@ -1,49 +1,84 @@
-# Tasarimci - Egitim ve UI/UX Standartlari
+# Tasarimci - Egitim ve Craft Standartlari
 
-## 1. "Yapay Zeka Kliselerini" Reddetme Rehberi
-Bir tasarimin "yapay zeka sablonu" gibi gorunmesini engelleyen kesin kurallar:
-- **Renk Patlamasi Yasagi:** Ekranda ayni anda 4-5 canli renk, cirtlak neon gradyanlar veya rastgele mor-mavi arka planlar kesinlikle kullanilamaz.
-- **Tekrar Eden Kutu Sendromu Yasagi:** Ekrandaki her veriyi ayni yuvarlak beyaz kartin icine koyup alt alta siralamak yasaktir. Bilgi tipine gore ritim kurulur:
-  - Ana aksiyonlar net, zarif kartlarda.
-  - Listeler kutusuz, aralarinda hafif bosluk ve ince ayraclar bulunan temiz satirlarda.
-  - Detay metinleri arka planla uyumlu, sessiz tipografik bloklarda.
-- **Kart Icinde Kart Yasagi (No Nested Cards):** Bir kartin icine asla ikinci bir kart gomulmez (`Card -> Card` yasaktir). Ic bolumler sadece ince bir `divider` veya boslukla ayrilir.
-- **Agir Golgeler Yasagi:** `blurRadius: 20` gibi camurlu buyuk golgeler yasaktir. Yuzeyler arasi gecis hafif ton farkiyla (`surfaceContainer`) veya `0.5 - 1 dp` cok ince seffaf cercevelerle saglanir.
+## 1. Yapay Zeka Klişelerini Yok Eden Tasarım Manifestosu
 
-## 2. Renk ve Yuzey Standardi (60-30-10 Kurali)
-Tasarimci renkleri su orana gore dengeler:
-- **%60 Ana Arka Plan:** Koyu modda derin arduvaz/grafit (`#0F141C`, `#121824`), acik modda sicak kirik beyaz/tas tonlari (`#F8F9FA`, `#F3F4F6`).
-- **%30 Destekleyici Yuzeyler:** Kartlar, alt barlar, modal sayfalar icin ana zeminden sadece 1-2 ton acik/koyu yuzeyler.
-- **%10 Tek Vurgu Rengi (Accent):** Yalnizca kullanicinin tiklamasi gereken butonlar, secili sekmeler veya kritik durumlar icin tek bir sofistike renk (ornegin: sicak kiremit, zeytin yesili, saf kobalt veya endustriyel kehribar).
+Bir Flutter ekranına bakıldığında "bunu yapay zeka yazmış" dedirten 4 temel günah ve bunların zanaatkar çözümleri:
 
-## 3. Basparmak Bolgesi (Thumb-Zone) ve Ergonomi
-- **Tek Elle Kullanim:** Kullanicinin tek elle telefonu tutarken rahat ulasabilecegi alan ekranin alt 1/3'luk dilimidir.
-- **Ana Aksiyonlar (CTA):** Form onaylama, devam etme, kaydetme gibi birincil butonlar her zaman alt kisimda (Bottom Action Bar veya alt bolgede) yer almalidir.
-- **Yikici / Tehlikeli Aksiyonlar:** "Sil", "Hesabi Kapat", "Cikis Yap" gibi geri donussuz butonlar asla alt basparmak hizasina konulamaz; yukari kosede veya onay pencerelerinde guvenli tutulur.
+| Yapay Zeka Klişesi (Yasak) | Zanaatkar / İnsan Eli Çözümü (Zorunlu) |
+| :--- | :--- |
+| Tailwind İndigo (`0xFF4F46E5`) ve jenerik morlar | Obsidyen Siyahı (`#0A0A0C`), Titanyum Grisi ve projeye özel tek imza renk (Hermès Turuncusu, Zümrüt, Amber). |
+| Her satırın solunda renkli daire içinde bir ikon | Tipografik hiyerarşi, mikro durum noktaları (2-4 dp dot), sade ve hafif ikonlar veya saf editoryal metin. |
+| Her yeri kaplayan yuvarlak kutular ve çamurlu gölgeler | Kutusuz ferah satırlar, 0.5 dp saç teli inceliğinde kenarlıklar (`Border.all(color: Colors.white.withOpacity(0.08))`). |
+| Kart içine ikinci bir kart gömmek (`Nested Cards`) | Tek yüzey üzerinde ince ayraç (hairline divider) veya mikro boşluk hiyerarşisi. |
 
-## 4. Esmerkezli Kose Geometrisi (Concentric Radius)
-Ic ice yuvarlatilmis yuzeylerde optik carpmayi onleyen kural:
-```text
-Dis Kose Yaricapi = Ic Kose Yaricapi + Aradaki Bosluk (Padding)
-```
-- Ornek: Dis kartin padding'i 8dp ve ic butonun `borderRadius`'u 8dp ise, dis kartin `borderRadius`'u 16dp olmalidir. Boylece koseler birbirini kusursuz takip eder.
+---
 
-## 5. Sayi Titremesi Korumasi (Tabular Figures)
-- Kronometre, sayac, nabiz, fiyatta sayilar surekli degisirken ekranin saga sola titremesini onlemek icin su kural zorunludur:
+## 2. Renk ve Yüzey Mimarisi
+
+### Koyu Mod (Obsidian & Titanium)
+- **Ana Zemin:** `Color(0xFF0A0A0C)` (Derin mat obsidyen, asla jenerik lacivert-gri değil).
+- **Yüzey / Kart Katmanı:** `Color(0xFF141418)` veya `Color(0xFF1A1A20)`.
+- **Saç Teli Çerçeveler:** `Border.all(color: Colors.white.withOpacity(0.07), width: 0.7)`.
+- **Vurgu Rengi:** Tek ve net (Örn: `Color(0xFFF97316)` Hermès Turuncusu veya `Color(0xFF10B981)` Zümrüt).
+
+### Açık Mod (Swiss Minimal / Paper & Bone)
+- **Ana Zemin:** `Color(0xFFF7F7F9)` (Sıcak taş/kemik tonu).
+- **Yüzey / Kart Katmanı:** `Color(0xFFFFFFFF)`.
+- **Saç Teli Çerçeveler:** `Border.all(color: Colors.black.withOpacity(0.06), width: 0.7)`.
+
+---
+
+## 3. Tipografik Ustalık ve Sayısal Hiyerarşi
+
+### Başlıklar ve Etiketler
+* **Büyük Başlıklar:** `letterSpacing: -0.7`, `fontWeight: FontWeight.w700`.
+* **Kategori / Üst Başlık (Eyebrow):** `fontSize: 11`, `letterSpacing: 1.2`, `fontWeight: FontWeight.w600`, tamamı BÜYÜK HARF ve ikincil soluk renk.
+* **Gövde Metinleri:** Yüksek okunurluk, `letterSpacing: -0.2`.
+
+### Finansal ve Sayısal Gösterimler (Craft Typography)
+Para tutarlarında asla dümdüz `Text('₺12.450,50')` yazılmaz. Parçalı ve usta işi format uygulanır:
 ```dart
-style: TextStyle(
-  fontFeatures: const [FontFeature.tabularFigures()],
+RichText(
+  text: TextSpan(
+    style: TextStyle(
+      fontFeatures: const [FontFeature.tabularFigures()],
+      color: textColor,
+    ),
+    children: [
+      TextSpan(
+        text: '₺',
+        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: textColor.withOpacity(0.6)),
+      ),
+      const TextSpan(
+        text: '12.450',
+        style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, letterSpacing: -0.8),
+      ),
+      TextSpan(
+        text: ',50',
+        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: textColor.withOpacity(0.6)),
+      ),
+    ],
+  ),
 )
 ```
 
-## 6. Tum Telefon Boyutlarina Gercek Responsive Uyum
-Tasarimlarin tum ekranlarda (iPhone SE'den buyuk Pro Max'lere ve tabletlere) sorunsuz calisma kurallari:
-- **Sabit Yukseklik Yasagi:** Ekrani kaplayan bilesenlere asla `Container(height: 380)` gibi korlemesine sabit piksel verilmez.
-- **Tasma Korumasi:** Form ekranlari ve dikey bilesenler her zaman `SingleChildScrollView` ve `SafeArea` ile sarilir; klavye acildiginda tek bir piksel dahi tasma (`RenderFlex overflow`) yapamaz.
-- **Esnek Boyutlandirma:** Esnek alanlarda `LayoutBuilder`, `Flexible` ve `Expanded` dogru hiyerarsiyle kullanilir.
-- **Maksimum Genislik Siniri:** Genis ekranlarda veya tabletlerde kartlarin ucube gibi saga sola esnemesini engellemek icin `ConstrainedBox(constraints: BoxConstraints(maxWidth: 600))` kullanilir.
+---
 
-## 7. Tipografi ve 8-Point Izgara (Grid) Sistemi
-- Tum bosluklar ve padding degerleri 8'in katlari veya 4'un ara degerleridir (`4, 8, 12, 16, 24, 32 dp`).
-- Tum font boyutlari `Theme.of(context).textTheme` uzerinden alinir.
-- Tiklanabilir her bilesen parmakla kolay basilabilmesi icin en az `48x48 dp` alana sahip olmalidir.
+## 4. Dokunsal Detaylar ve Mikro Öğeler
+- **Durum Göstergeleri:** Büyük etiket kutuları yerine mini noktalar:
+  ```dart
+  Container(
+    width: 6,
+    height: 6,
+    decoration: BoxDecoration(shape: BoxShape.circle, color: accentColor),
+  )
+  ```
+- **Seçiciler (Segment Controls):** Pofuduk butonlar yerine Apple tarzı gömülü, kayar zeminli minimalist seçiciler.
+- **Liste Düzeni:** Kutulu haplar yerine Things 3 tarzı temiz, açık ve editoryal satırlar.
+
+---
+
+## 5. Responsive ve Taşma Koruması
+- Sabit yükseklik (`height: 350`) kesinlikle yasaktır.
+- Klavye ve küçük ekranlar için her dikey akış `SingleChildScrollView` ve `SafeArea` ile korunur.
+- Tablet ve geniş ekranlarda `ConstrainedBox(constraints: BoxConstraints(maxWidth: 600))` ile optimum okuma genişliği korunur.
