@@ -9,6 +9,22 @@
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_PERSONAL_ACCESS_TOKEN"
       }
+    },
+    "fetch": {
+      "command": "/opt/homebrew/bin/uvx",
+      "args": [
+        "mcp-server-fetch"
+      ]
+    },
+    "memory": {
+      "command": "/opt/homebrew/bin/npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "env": {
+        "MEMORY_FILE_PATH": "/Users/nurettinyavuz/.gemini/config/memory.jsonl"
+      }
     }
   }
 }
